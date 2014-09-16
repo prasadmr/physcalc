@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+	<form action="/resistance/" method="post">
+	{% csrf_token %}
+	<table>
+	{{ form.as_table}}
+	</table>	
+	<input type="submit" align = "right" value="Calculate"  />
+	</form>
+</div><br>
+
+
+<div align = "justify">
+	<h2 align = "center">The resistance is {{ res }} {{ p }} ohms plus/minus {{tolerance}}%</h2>
+</div>
+
+
+{% endblock %}
+
