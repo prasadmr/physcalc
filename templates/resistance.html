@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-	<form action="/resistance/" method="post">
-	{% csrf_token %}
-	<table>
-	{{ form.as_table}}
-	</table>	
-	<input type="submit" align = "right" value="Calculate"  />
-	</form>
-</div><br>
-
-
-<div align = "justify">
-	<h2 align = "center">The resistance is {{ res }} {{ p }} ohms plus/minus {{tolerance}}%</h2>
+<div class="header">
+    <h1>Resistance</h1>
+    <h2>Find the resistance from color codes.</h2>
 </div>
+<div class="content">
+    <h2 class="content-subhead">Please enter the color codes:</h2>
+	<form action="/resistance/" method="post" class="pure-form pure-form-stacked">{% csrf_token %}
+		<table>
+		{{ form.as_table}}
+		</table>	
+		<input type="submit" align = "right" value="Calculate" class="pure-button pure-button-active" />
+	</form>
 
-
+	<div style="border:1px solid #ccc; color: orange; margin-top:20px">
+		<h2>The resistance is {{ res }} {{ p }} ohms +/- {{tolerance}}%</h2>
+	</div>
+</div>
 {% endblock %}
-
